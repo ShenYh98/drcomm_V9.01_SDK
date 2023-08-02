@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <XMLINfO>
+        <INfO Ver="1.0" CreationTime="2022-01-13 08:30:00" ModificationTime="2023-02-28 16:19:56" />
+    </XMLINfO>
+    <DevData>
+        <Mode DevSnNo="091001686977" MaxPower="30000.000" ExtraPower="200.000" RemoteCtrl="1" Prepayment="1" ArrearsStatus="0" ArrearsStatusSrc="0" Reserve1="0" Reserve2="0" Reserve3="0" Reserve4="0" />
+    </DevData>
+</root>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CFG>
+	<CommonCfg>
+		<max_links>32</max_links>
+		<max_dataset_fcda>256</max_dataset_fcda>
+		<sscfg_file_name>sscfg.dat</sscfg_file_name>
+		<sscfg_file_name_x86>SclServerCfg.dat</sscfg_file_name_x86>
+		<biomap_file_name>bio.map</biomap_file_name>
+		<biomap_file_name_x86>bio_windows.map</biomap_file_name_x86>
+		<index_buf_size>4096000</index_buf_size>
+		<conformance_test_mode>1</conformance_test_mode>
+		<netlog_port>2300</netlog_port>
+	</CommonCfg>
+	<ServiceCfg>
+		<tree_size>562144</tree_size>
+		<asn1_size>80000</asn1_size>
+		<max_fcda_of_ln>60000</max_fcda_of_ln>
+		<do_size>8192</do_size>
+		<do_asn1_size>65536</do_asn1_size>
+		<brcb_buf_size>160000</brcb_buf_size>
+		<root_dir>../</root_dir>
+		<default_dir>.</default_dir>
+		<max_reports_per_second>2000</max_reports_per_second>
+		<edit_sg_timeouts>60000</edit_sg_timeouts>
+	</ServiceCfg>
+	<DciCfg>
+		<down_mq_size>64000</down_mq_size>
+		<up_mq_size>640000</up_mq_size>
+		<dpi_delay_time>100</dpi_delay_time>
+		<mq_send_timeouts>1000</mq_send_timeouts>
+		<req_timeouts>10000</req_timeouts>
+		<set_data_timeouts>15000</set_data_timeouts>		
+		<op_sel_timeouts>15000</op_sel_timeouts>
+		<op_oper_timeouts>15000</op_oper_timeouts>
+		<op_result_timeouts>20000</op_result_timeouts>
+		<op_cancel_timeouts>15000</op_cancel_timeouts>
+		<sg_switch_timeouts>30000</sg_switch_timeouts>
+		<sg_edit_timeouts>10000</sg_edit_timeouts>
+		<sg_confirm_timeouts>30000</sg_confirm_timeouts>
+		<sg_cancel_timeouts>10000</sg_cancel_timeouts>
+	</DciCfg>
+	<DebugCfg>
+		<service>1</service>
+		<report>1</report>
+		<bio>1</bio>
+		<yk>1</yk>
+		<yx>1</yx>
+		<yc>0</yc>
+	</DebugCfg>
+	<TaskCfg>
+		<TASK valid="0" priority="250" stackSize="65536" wd_periods="0">tNetlog</TASK>
+		<TASK valid="1" priority="250" stackSize="65536" wd_periods="0">tAppMap</TASK>
+		<TASK valid="1" priority="100" stackSize="65536" wd_periods="10000">tBio</TASK>
+		<TASK valid="1" priority="150" stackSize="262114" wd_periods="30000">tReport</TASK>
+		<TASK valid="1" priority="200" stackSize="655360" wd_periods="50000">tService</TASK>
+	</TaskCfg>
+</CFG>
+
+<!--
+CommonCfg{
+	int max_links;				/* 最大连接个数 */
+	int max_dataset_fcda;		/* 数据集最大FCDA数 */
+	char sscfg_file_name[64];		/* sscfg.dat文件名 */
+	char sscfg_file_name_x86[64];	/* x86平台 sscfg.dat文件名 */
+	char biomap_file_name[64];		/* bio.map文件名 */
+	char biomap_file_name_x86[64];	/* x86平台 bio.map文件名 */
+	int index_buf_size;			/* 索引树缓冲区大小 */
+	int conformance_test_mode;	/* 一致性测试模式 */
+	int netlog_port;			/* NetLog端口 */
+}
+
+ServiceCfg{
+	int tree_size;				/* 模型树缓冲区大小 */
+	int asn1_size;				/* ASN1缓冲区大小 */
+	int max_fcda_of_ln;			/* LN下最大数据属性数 */
+	int do_size;				/* DO大小 */
+	int do_asn1_size;			/* DO ASN1缓冲区大小 */
+	int brcb_buf_size;			/* BRCB缓冲区大小 */
+	char root_dir[64];			/* 文件服务根目录名 */
+	int max_reports_per_second;	/* 每秒最大发送报告数 */
+	int edit_sg_timeouts;		/* 编辑定值超时时间 */
+}
+
+DebugCfg{
+	int service;		/* 服务调试 */
+	int report;			/* 报告调试 */
+	int bio;				/* bio调试 */
+	int yk;					/* 遥控调试 */
+	int yx;					/* 遥信调试 */
+	int yc;					/* 遥测调试 */
+}
+
+DciCfg{
+	int down_mq_size;			/* 下行队列大小 */
+	int up_mq_size;				/* 上行队列大小 */
+	int dpi_delay_time;			/* 双位遥信延时判断时间，毫秒 */
+	int mq_send_timeouts;		/* 队列发送超时时间，毫秒 */
+	int req_timeouts;			/* 请求命令超时时间，毫秒 */
+	int op_sel_timeouts;		/* 遥控选择命令超时时间，毫秒 */
+	int op_oper_timeouts;		/* 遥控执行命令超时时间，毫秒 */
+	int op_result_timeouts;		/* 遥控结果等待时间，毫秒 */
+	int op_cancel_timeouts;		/* 遥控撤销命令超时时间，毫秒 */
+	int sg_switch_timeouts;		/* 定值切换命令超时时间，毫秒 */
+	int sg_edit_timeouts;		/* 修改定值命令超时时间，毫秒 */
+	int sg_confirm_timeouts;		/* 确认定值命令超时时间，毫秒 */
+	int sg_cancel_timeouts;		/* 取消定值修改命令超时时间，毫秒 */
+}
+-->
