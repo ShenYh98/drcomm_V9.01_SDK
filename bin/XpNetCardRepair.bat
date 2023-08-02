@@ -1,1 +1,0 @@
-replace ifmon.dll c:\windows\system32
